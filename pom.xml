@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.ssm</groupId>
+    <artifactId>frame</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <!--插件在构建时执行-->
+    <build>
+        <plugins>
+            <!--java 编译版本-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source><!--源代码编译版本-->
+                    <target>1.8</target><!--目标平台编译版本-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--自定义属性，管理jar版本-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--logback日志版本-->
+        <logback.version>1.2.3</logback.version>
+        <!--Apache 工具类版本-->
+        <commons.lang3.version>3.4</commons.lang3.version>
+        <!--阿里巴巴fastjson 版本-->
+        <fastjson.version>1.2.33</fastjson.version>
+        <!--Junit版本-->
+        <junit.version>4.12</junit.version>
+        <!--slf4j版本-->
+        <slf4j.version>1.7.21</slf4j.version>
+    </properties>
+
+    <!--依赖包-->
+    <dependencies>
+        <!--logback-core日志基础模块-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <!--logback-classic，log4j的一个改良版本-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <!--工具类-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+        <!-- fastjson相关包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!--Junit测试-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!--项目子模块-->
+    <modules>
+        <!-- 核心框架 -->
+        <module>core</module>
+        <!-- 核心工具 -->
+        <module>tools</module>
+        <!-- 封装Spring-data-redis -->
+        <!--<module>redis</module>-->
+        <!--web项目-->
+        <!--<module>butler</module>-->
+        <!--<module>core</module>-->
+
+    </modules>
+
+</project>
