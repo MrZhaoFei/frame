@@ -31,6 +31,7 @@
         <!--logback日志版本-->
         <logback.version>1.2.3</logback.version>
         <!--Apache 工具类版本-->
+        <lang.version>2.6</lang.version>
         <commons.lang3.version>3.4</commons.lang3.version>
         <!--阿里巴巴fastjson 版本-->
         <fastjson.version>1.2.33</fastjson.version>
@@ -61,6 +62,11 @@
         </dependency>
         <!--工具类-->
         <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${lang.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang3.version}</version>
@@ -86,7 +92,8 @@
         <!-- 核心工具 -->
         <module>tools</module>
         <!-- 封装Spring-data-redis -->
-        <!--<module>redis</module>-->
+        <module>redis</module>
+        <module>butler</module>
         <!--web项目-->
         <!--<module>butler</module>-->
         <!--<module>core</module>-->

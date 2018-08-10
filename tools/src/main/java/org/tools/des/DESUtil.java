@@ -23,11 +23,13 @@ public class DESUtil {
 	private final static String DES = "DES";
 
 	public static void main(String[] args) throws Exception {
-		//String data = "develop";
-		String data = "jdbc:mysql://127.0.0.1:3306/develop?useUnicode=true&characterEncoding=utf8&mysqlEncoding=utf8";
-		String key = "sczxclbx";
+		String data = "MrZhaoFei0109";
+		//String url = "jdbc:mysql://47.104.206.03:3306/develop?useUnicode=true&characterEncoding=utf8&mysqlEncoding=utf8&autoReconnect=true";
+		String key = "zgsczxcl";
+		//加密
 		System.out.println(encrypt(data, key));
-		// System.err.println(decrypt(data, key));
+		//解密
+		 //System.err.println(decrypt(data, key));
 	}
 
 	/**

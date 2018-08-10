@@ -1,4 +1,4 @@
-package org.service.redis.cache;
+package org.redis.cache;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,8 +12,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.service.redis.token.AuthenticationSession;
-import org.service.redis.token.AuthenticationToken;
+import org.redis.token.AuthenticationSession;
+import org.redis.token.AuthenticationToken;
+import org.redis.cache.RedisCache;
 import org.springframework.cache.Cache;
 import org.springframework.cache.support.NullValue;
 import org.springframework.cache.transaction.AbstractTransactionSupportingCacheManager;

@@ -1,4 +1,4 @@
-package org.service.redis.cache;
+package org.redis.cache;
 
 /**
  * @Author Zhao.Fei

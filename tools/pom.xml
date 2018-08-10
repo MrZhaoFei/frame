@@ -12,6 +12,7 @@
     <artifactId>tools</artifactId>
     <name>tools</name>
     <url>http://maven.apache.org</url>
+    <!--自定义属性-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <base64.version>2.3.9</base64.version>

@@ -11,6 +11,30 @@
 
     <artifactId>redis</artifactId>
     <name>redis</name>
+
+    <!--自定义属性-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring.data.redis.version>1.7.2.RELEASE</spring.data.redis.version>
+        <jedis.version>2.9.0</jedis.version>
+    </properties>
+
+    <dependencies>
+        <!-- Spring-data-redis -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${spring.data.redis.version}</version>
+        </dependency>
+        <!-- jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>redis</finalName>
     </build>

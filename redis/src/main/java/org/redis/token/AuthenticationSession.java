@@ -1,4 +1,4 @@
-package org.service.redis.token;
+package org.redis.token;
 
 import java.io.Serializable;
 
