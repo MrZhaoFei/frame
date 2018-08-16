@@ -18,7 +18,7 @@
 						http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
 						
 	<!-- 配置需要交给spring扫描管理的包,一般是包括整个项目的java文件的父包（由context提供） -->
-	<context:component-scan base-package="org.system,org.service.task" />
+	<context:component-scan base-package="org.system.*,org.service.task.*" />
 	
 	<!-- 属性文件读入,用于加密数据库配置文件 -->
 	<bean id="propertyConfigurer" class="org.system.encrypt.DBConfigurer">
@@ -49,6 +49,8 @@
 		<property name="maxWait" value="${db.maxWait}" />
 	</bean>
 
+
+
 	<!-- 配置sqlSessionFactory(由mybatis-spring.jar提供支持) -->
 	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 配置数据源 -->
@@ -58,11 +60,16 @@
 		<!-- 配置拦截器用于Mybatis分页和总数查询，只实现Mysql -->
 		<property name="plugins" ref="PaginationInterceptor" />
 	</bean>
-	
+
 	<!-- Mybatis分页拦截器 -->
-	<bean name="PaginationInterceptor" class="com.github.pagehelper.PageInterceptor" >
-		<property name="dialect" value="mysql"/>
-	</bean>
+	<bean name="PaginationInterceptor" class="org.system.intercept.PaginationInterceptor" />
+
+	<!-- Mybatis pagehelper 分页拦截器 有问题-->
+	<!--<bean name="PaginationInterceptor" class="com.github.pagehelper.PageInterceptor" >-->
+		<!--<property name="reasonable" value="true"/>-->
+		<!--<property name="supportMethodsArguments" value="true"/>-->
+		<!--<property name="params" value="count=countSql"/>-->
+	<!--</bean>-->
 	
 	<!-- mybatis默认选项配置 -->
 	<bean id="configuration"  class="org.apache.ibatis.session.Configuration">
@@ -129,6 +136,10 @@
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
+	<bean id="redisConfig" class="org.redis.cache.RedisConfig">
+		<property name="expire" value="3600" />
+		<property name="isDelay" value="true" />
+	</bean>
 	<!-- redis缓存管理器 -->
 	<bean id="cacheManager" class="org.redis.cache.RedisCacheManager">
 		<constructor-arg name="redisOperations" ref="redisTemplate" />
@@ -138,8 +149,7 @@
 		<property name="expires">
 			<map>
 				<!-- 缓存超时时间设置 -->
-				<entry key="pension_userCache" value="3600" />
-				<entry key="pension_permissionCache" value="3600" />
+				<entry key="userCache" value-ref="redisConfig" />
 			</map>
 		</property>
 	</bean>

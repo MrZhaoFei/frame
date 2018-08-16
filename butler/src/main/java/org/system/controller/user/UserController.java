@@ -3,6 +3,7 @@ package org.system.controller.user;
 import org.core.entity.BaseEntity;
 import org.core.result.ResultCode;
 import org.core.result.ResultMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -26,11 +27,11 @@ import java.util.Map;
  * @Description 用户信息
  */
 
-@RequestMapping("user/")
+@RequestMapping("/user/")
 @Controller
 public class UserController {
 
-    @Resource
+    @Autowired
     private IUserService userService;
     /**
      * @Author Zhao.Fei

@@ -88,12 +88,12 @@
 	</bean>
 
 	<!--拦截器-->
-	<mvc:interceptors>
+	<!--<mvc:interceptors>-->
 		<!--<mvc:interceptor>-->
 			<!--拦截路径-->
 			<!--<mvc:mapping path="/fees/**" />-->
 			<!--<bean class="org.system.intercept.fees.FeesSecurityInterceptor" />-->
 		<!--</mvc:interceptor>-->
 
-	</mvc:interceptors>
+	<!--</mvc:interceptors>-->
 </beans>

@@ -1,11 +1,13 @@
-package org.service.task.fees;
+package org.service.task;
 
 import java.util.Properties;
 
+import org.service.utils.mail.PushMail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,6 +15,7 @@ public class ServiceTask {
 	Logger log = LoggerFactory.getLogger(ServiceTask.class);
 
 	//@Scheduled(cron="0/20 * * * * ?")
+	//@Scheduled(cron = "0 0 17 ? ? 3,5 *")
 	public void SpringTask() {
 		//PushMail.pushText(new TextMail("29506564@qq.com", "测试主题", "测试内容"));
 	}
@@ -22,8 +25,8 @@ public class ServiceTask {
 		senderImpl.setHost("smtp.qiye.163.com");
 		senderImpl.setProtocol("smtp");
 		senderImpl.setPort(25);
-		senderImpl.setUsername("liu.gangqiang@kst-health.com");
-		senderImpl.setPassword("puRScDkQmpgeGR4G");
+		senderImpl.setUsername("zf29506564@163.com");
+		senderImpl.setPassword("gsrarlgxeaslbbgj");
 		senderImpl.setDefaultEncoding("UTF-8");
 
 		Properties properties = new Properties();
@@ -34,7 +37,7 @@ public class ServiceTask {
 
 		SimpleMailMessage smm = new SimpleMailMessage();
 		smm.setFrom(senderImpl.getUsername());
-		smm.setTo("zf29506564@163.com");
+		smm.setTo("zf29506564@qq.com");
 		smm.setSubject("163邮箱测试");
 		smm.setText("这是通过163邮箱发送的邮件");
 		senderImpl.send(smm);
@@ -45,8 +48,8 @@ public class ServiceTask {
 		senderImpl.setHost("smtp.qq.com");
 		senderImpl.setProtocol("smtps");
 		senderImpl.setPort(465);
-		senderImpl.setUsername("mrliugangqiang@vip.qq.com");
-		senderImpl.setPassword("qcxeoaucgolybccf");
+		senderImpl.setUsername("819285335@qq.com");
+		senderImpl.setPassword("gsrarlgxeaslbbgj");
 		senderImpl.setDefaultEncoding("UTF-8");
 
 		Properties properties = new Properties();

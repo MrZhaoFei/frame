@@ -16,7 +16,7 @@ import org.tools.des.DESUtil;
  **/
 public class DBConfigurer extends PropertyPlaceholderConfigurer {
 
-	private final static String key = "sczxclbx";
+	private final static String key = "zgsczxcl";
 
 	private final static String URL = "db.url";
 

@@ -11,8 +11,6 @@
     <artifactId>butler</artifactId>
     <packaging>war</packaging>
     <name>butler</name>
-    <url>http://maven.apache.org</url>
-
     <!--自定义属性-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -106,7 +106,7 @@
 		<!-- 缓冲Event个数默认512 当达到了多少个就覆盖以前的Event 而非网络上所说的缓冲数据大小 不看源码坑出血 -->
 		<param name="BufferSize" value="512" />
 		<!-- 错误个数默认一个 即出现错误就发送邮件 -->
-		<param name="ErrorSize" value="5" />
+		<param name="ErrorSize" value="1" />
 		<!-- 发送邮件的协议类型 QQ使用smtps加密 163使用smtp-->
 		<param name="SMTPProtocol" value="smtps" />
 		<!-- 发送端口 QQ使用465 163使用25-->
@@ -114,17 +114,17 @@
 		<!-- 发送日志邮箱SMTP -->
 		<param name="SMTPHost" value="smtp.qq.com" />
 		<!-- 发送日志的邮箱 -->
-		<param name="From" value="mrliugangqiang@foxmail.com" />
+		<param name="From" value="819285335@qq.com" />
 		<!-- 发送日志的邮箱用户名 -->
-		<param name="SMTPUsername" value="mrliugangqiang@foxmail.com" />
+		<param name="SMTPUsername" value="819285335@qq.com" />
 		<!-- 发送日志的邮箱密码 -->
-		<param name="SMTPPassword" value="uyippsgcafvsbeee" />
+		<param name="SMTPPassword" value="gsrarlgxeaslbbgj" />
 		<!-- 日志邮件主题 -->
 		<param name="Subject" value="Butler Service System Error Please Handle" />
 		<!-- 日志邮件接收者 -->
 		<param name="To" value="29506564@qq.com" />
 		<!-- 抄送邮件接受者 -->
-		<!-- 	<param name="Bcc" value="MrLiuGangQiang@outlook.com"/> -->
+		<!-- 	<param name="Bcc" value="819285335@qq.com"/> -->
 		<!-- 日志输出布局 -->
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%p] [%c] %m%n" />

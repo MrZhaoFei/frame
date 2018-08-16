@@ -1,5 +1,6 @@
 package org.system.service.impl.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.system.entity.User;
 import org.system.mapper.user.UserMapper;
@@ -17,7 +18,7 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements IUserService{
 
-    @Resource
+    @Autowired
     private UserMapper mapper;
 
     @Override
