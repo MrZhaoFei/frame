@@ -27,7 +27,6 @@ import java.util.Map;
  * @Description 用户信息
  */
 
-@RequestMapping("/user/")
 @Controller
 public class UserController {
 
@@ -40,9 +39,9 @@ public class UserController {
      * @return java.util.Map<java.lang.String,java.lang.Object>
      * @Description 新增用户
      **/
-    @RequestMapping(value = {"insert"},method = RequestMethod.POST)
+    @RequestMapping(value = {"/user/insert"},method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> insertUser(@Validated(BaseEntity.Insert.class) @RequestBody User user, BindingResult result) {
+    public Map<String, Object> insertUser(@Validated({BaseEntity.Insert.class}) @RequestBody User user, BindingResult result) {
 
         /*新增用户*/
         if (userService.insertUser(user) > 0) {
@@ -60,7 +59,7 @@ public class UserController {
      * @return java.util.Map<java.lang.String,java.lang.Object>
      * @Description  查询用户详情
      **/
-    @RequestMapping(value = {"{userId}"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/user/{userId}"},method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> getUserDetail(@PathVariable("userId")Integer userId,@Validated(BaseEntity.SelectOne.class)User user, BindingResult result) {
         user.setId(userId);

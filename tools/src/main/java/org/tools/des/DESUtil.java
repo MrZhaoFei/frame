@@ -24,10 +24,10 @@ public class DESUtil {
 
 	public static void main(String[] args) throws Exception {
 		String data = "MrZhaoFei0109";
-		//String url = "jdbc:mysql://47.104.206.03:3306/develop?useUnicode=true&characterEncoding=utf8&mysqlEncoding=utf8&autoReconnect=true";
+		String url = "jdbc:mysql://47.104.206.03:3306/butler?useUnicode=true&characterEncoding=utf8&mysqlEncoding=utf8&autoReconnect=true";
 		String key = "zgsczxcl";
 		//加密
-		System.out.println(encrypt(data, key));
+		System.out.println(encrypt(url, key));
 		//解密
 		 //System.err.println(decrypt(data, key));
 	}

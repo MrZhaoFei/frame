@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- 扫描要自动管理的包 -->
-	<context:component-scan base-package="org.system.controller.*.impl" />
+	<context:component-scan base-package="org.system" />
 
 	<!-- 静态资源文件路径设置 -->
 	<!-- <mvc:resources location="/api/" mapping="/api/**" /> -->
@@ -27,8 +27,8 @@
 	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 系统内没有涉及到页面跳转所以基本无用 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/" />
-		<property name="suffix" value=".html" />
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
 	<!-- 实体类校验拦截器 -->
@@ -38,7 +38,7 @@
 	<aop:config>
 		<!--切入点 -->
 		<aop:pointcut id="validPoint"
-			expression="execution(public * org.system.controller.*.impl..*.*(..))" />
+			expression="execution(public * org.system.controller..*.*(..))" />
 		<!--在该切入点使用自定义拦截器 -->
 		<aop:advisor pointcut-ref="validPoint" advice-ref="validInterceptor" />
 	</aop:config>

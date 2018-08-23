@@ -1,5 +1,7 @@
 package org.core.result;
 
+import org.core.message.SystemMessage;
+
 /**
  * @ClassName ResultCode
  * @Author Zhao.Fei
@@ -107,9 +109,9 @@ public enum ResultCode {
      **/
     SYSTEM_TIMEOUT(504, "result.message.gateway.timeout");
 
-    private int value;
+    private final int value;
 
-    private String message;
+    private final String message;
 
     public int getValue() {
         return value;
@@ -121,6 +123,6 @@ public enum ResultCode {
 
     ResultCode(int value, String message) {
         this.value = value;
-        this.message = message;
+        this.message = SystemMessage.bundle(message);
     }
 }
