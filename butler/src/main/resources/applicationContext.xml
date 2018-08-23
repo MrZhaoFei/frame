@@ -149,7 +149,7 @@
 		<property name="expires">
 			<map>
 				<!-- 缓存超时时间设置 -->
-				<entry key="userCache" value-ref="redisConfig" />
+				<entry key="user:login_cache" value-ref="redisConfig" />
 			</map>
 		</property>
 	</bean>
