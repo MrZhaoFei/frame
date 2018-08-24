@@ -99,7 +99,7 @@ public class SMTPAppender extends AppenderSkeleton implements UnrecognizedElemen
 	private int smtpPort = -1;
 	private boolean smtpDebug = false;
 	private int bufferSize = 512;
-	private int errorSize = 10;
+	private int errorSize = 3;
 	private boolean locationInfo = false;
 	private boolean sendOnClose = false;
 
@@ -261,6 +261,7 @@ public class SMTPAppender extends AppenderSkeleton implements UnrecognizedElemen
 		event.getThrowableStrRep();
 		cb.add(event);
 		if (evaluator.isTriggeringEvent(event) && cb.length() >= errorSize) {
+			System.out.println(errorSize+"*******");
 			sendBuffer();
 		}
 	}

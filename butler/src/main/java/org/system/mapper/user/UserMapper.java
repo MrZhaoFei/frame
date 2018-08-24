@@ -1,8 +1,7 @@
 package org.system.mapper.user;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.core.mapper.IBaseMapper;
-import org.system.entity.User;
+import org.system.entity.user.User;
 
 /**
  * @ClassName UserMapper

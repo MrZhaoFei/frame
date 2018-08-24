@@ -9,7 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:applicationContext.xml,
-			classpath*:spring-*.xml
+			classpath*:spring-*.xml,
 		</param-value>
 	</context-param>
 	
@@ -22,7 +22,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<!-- 全局UTF-8编码过滤器 -->
 	<filter>
 		<filter-name>CharacterEncoding</filter-name>

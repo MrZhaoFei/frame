@@ -1,4 +1,4 @@
-package org.system.entity;
+package org.system.entity.user;
 
 import org.core.entity.BaseEntity;
 import org.hibernate.validator.constraints.NotBlank;
@@ -10,16 +10,37 @@ import java.util.Date;
  * @ClassName User
  * @Author Zhao.Fei
  * @Date 2018/8/10 16:17
- * @Description TODO
+ * @Description 用户信息
  */
 public class User extends BaseEntity {
 
+    /**
+     * @Author Zhao.Fei
+     * @Param
+     * @Date 2018/8/24 10:13
+     * @return
+     * @Description  用户注册校验组
+     **/
+    public interface UserRegister{};
+
     private Integer id;
 
-    @NotBlank(message = "{user.name.notblank.valid.msg}", groups = { BaseEntity.Insert.class })
+    @NotBlank(message = "{user.phone.notblank.valid.msg}", groups = {User.UserRegister.class})
+    private String phone;
+
+    @NotBlank(message = "{user.password.notblank.valid.msg}", groups = {User.UserRegister.class})
+    private String password;
+
+    @NotBlank(message = "{user.nickName.notblank.valid.msg}", groups = {User.UserRegister.class})
+    private String nickName;
+
     private String name;
 
-    private String phone;
+    private Integer sex;
+
+    private String idCard;
+
+    private Date birthday;
 
     private String province;
 
@@ -34,12 +55,6 @@ public class User extends BaseEntity {
     private Double lat;
 
     private String address;
-
-    private Date birthday;
-
-    private Integer sex;
-
-    private String idCard;
 
     private String remark;
 
@@ -173,6 +188,22 @@ public class User extends BaseEntity {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     @Override

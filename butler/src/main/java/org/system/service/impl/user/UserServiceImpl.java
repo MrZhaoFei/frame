@@ -2,11 +2,10 @@ package org.system.service.impl.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.system.entity.User;
+import org.system.entity.user.User;
 import org.system.mapper.user.UserMapper;
 import org.system.service.iface.user.IUserService;
 
-import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -29,5 +28,10 @@ public class UserServiceImpl implements IUserService{
     @Override
     public Map<String, Object> getUserDetail(User user) {
         return mapper.selectOne(user);
+    }
+
+    @Override
+    public Map<String, Object> getUserIsExists(User user) {
+        return mapper.selectIsExists(user);
     }
 }

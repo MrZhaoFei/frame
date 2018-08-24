@@ -29,7 +29,8 @@ public class RedisConfiguration extends CachingConfigurerSupport {
 		RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
 		rcm.setDefaultExpiration(1800L);
 		Map<String, RedisConfig> redisMap = new HashMap<>();
-		redisMap.put(BaseGlobal.CACHE_USER, new RedisConfig(1800L, true));
+		redisMap.put(BaseGlobal.CACHE_USER, new RedisConfig(180L, true));
+		redisMap.put(BaseGlobal.CACHE_CODE, new RedisConfig(500L, false));
 		rcm.setExpires(redisMap);
 		return rcm;
 	}

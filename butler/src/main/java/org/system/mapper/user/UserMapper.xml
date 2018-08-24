@@ -3,13 +3,13 @@
 <mapper namespace="org.system.mapper.user.UserMapper">
 
     <!-- 新增用户信息 -->
-    <insert id="insert" parameterType="org.system.entity.User" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO `user` (`name`, `sex`, `id_card`, `birthday`, `phone`, `province`, `city`, `area`, `street`, `lng`, `lat`, `address`, `create_date`, `update_date`, `remark`)
-        VALUES (#{name}, #{sex},#{idCard},#{birthday},#{phone},#{province},#{city},#{area},#{street},#{lng},#{lat},#{address},#{createDate},#{updateDate},#{remark} );
+    <insert id="insert" parameterType="org.system.entity.user.User" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO `user` (`phone`, `password`, `nick_name`, `name`, `sex`, `id_card`, `birthday`, `province`, `city`, `area`, `street`, `lng`, `lat`, `address`, `create_date`, `update_date`, `remark`)
+        VALUES (#{phone}, #{password}, #{nickName}, #{name}, #{sex}, #{idCard}, #{birthday},#{province}, #{city}, #{area}, #{street}, #{lng}, #{lat}, #{address}, #{createDate}, #{updateDate}, #{remark});
     </insert>
 
     <!-- 查询用户信息详情 -->
-    <select id="selectOne" parameterType="org.system.entity.User" resultType="map">
+    <select id="selectOne" parameterType="org.system.entity.user.User" resultType="map">
         SELECT
             u.id,
             u.`name`,
@@ -30,6 +30,23 @@
         FROM
             `user` u
         WHERE u.id=#{id}
+
+    </select>
+
+    <!--查询用户是否重复-->
+    <select id="selectIsExists" parameterType="org.system.entity.user.User" resultType="map">
+        SELECT
+            u.id,
+            u.phone,
+            u.nick_name nickName,
+            u.`name`,
+            u.sex,
+            u.id_card idCard,
+            u.birthday,
+            u.remark
+        FROM
+            `user` u
+        WHERE u.phone=#{phone}
 
     </select>
 

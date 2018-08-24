@@ -7,8 +7,15 @@ package org.system.global;
  * @Description TODO
  */
 public class BaseGlobal {
+
+    /*token标识列*/
+    public static final String TOKEN_FLAG = "token";
+
     /*用户登录缓存*/
     public static final String CACHE_USER = "user:login_cache";
+
+    /*手机验证码缓存*/
+    public static final String CACHE_CODE = "phone:code_cache";
 
 
 

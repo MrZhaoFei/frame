@@ -1,6 +1,6 @@
 package org.system.service.iface.user;
 
-import org.system.entity.User;
+import org.system.entity.user.User;
 
 import java.util.Map;
 
@@ -21,6 +21,7 @@ public interface IUserService {
      **/
     public int insertUser(User user);
 
+
     /**
      * @Author Zhao.Fei
      * @Param [user]
@@ -30,4 +31,12 @@ public interface IUserService {
      **/
     public Map<String,Object> getUserDetail(User user);
 
+    /***
+     * @Author Zhao.Fei
+     * @Param [user]
+     * @Date 2018/8/24 10:25
+     * @return int
+     * @Description 查询用户是否重复
+     **/
+    public Map<String,Object> getUserIsExists(User user);
 }

@@ -136,23 +136,23 @@
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
-	<bean id="redisConfig" class="org.redis.cache.RedisConfig">
-		<property name="expire" value="3600" />
-		<property name="isDelay" value="true" />
-	</bean>
-	<!-- redis缓存管理器 -->
-	<bean id="cacheManager" class="org.redis.cache.RedisCacheManager">
-		<constructor-arg name="redisOperations" ref="redisTemplate" />
-		<!-- 是否事务提交，如果事务回滚，缓存也回滚，默认false -->
-		<property name="transactionAware" value="true" />
-		<!-- 设置缓存超时时间 已实现自动续期 如果不设置将永久存在 -->
-		<property name="expires">
-			<map>
-				<!-- 缓存超时时间设置 -->
-				<entry key="user:login_cache" value-ref="redisConfig" />
-			</map>
-		</property>
-	</bean>
+	<!--<bean id="redisConfig" class="org.redis.cache.RedisConfig">-->
+		<!--<property name="expire" value="3600" />-->
+		<!--<property name="isDelay" value="true" />-->
+	<!--</bean>-->
+	<!--&lt;!&ndash; redis缓存管理器 &ndash;&gt;-->
+	<!--<bean id="cacheManager" class="org.redis.cache.RedisCacheManager">-->
+		<!--<constructor-arg name="redisOperations" ref="redisTemplate" />-->
+		<!--&lt;!&ndash; 是否事务提交，如果事务回滚，缓存也回滚，默认false &ndash;&gt;-->
+		<!--<property name="transactionAware" value="true" />-->
+		<!--&lt;!&ndash; 设置缓存超时时间 已实现自动续期 如果不设置将永久存在 &ndash;&gt;-->
+		<!--<property name="expires">-->
+			<!--<map>-->
+				<!--&lt;!&ndash; 缓存超时时间设置 &ndash;&gt;-->
+				<!--<entry key="user:login_cache" value-ref="redisConfig" />-->
+			<!--</map>-->
+		<!--</property>-->
+	<!--</bean>-->
 	
 	<!-- 支持缓存注解 -->
 	<cache:annotation-driven cache-manager="cacheManager" />

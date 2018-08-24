@@ -30,6 +30,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--logback日志版本-->
         <logback.version>1.2.3</logback.version>
+        <logbackExtSpring.version>0.1.5</logbackExtSpring.version>
         <!--Apache 工具类版本-->
         <lang.version>2.6</lang.version>
         <commons.lang3.version>3.4</commons.lang3.version>
@@ -58,6 +59,17 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>${logbackExtSpring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
         <!--工具类-->
