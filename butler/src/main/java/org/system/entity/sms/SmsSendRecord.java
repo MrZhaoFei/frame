@@ -1,10 +1,10 @@
 package org.system.entity.sms;
 
-import org.core.entity.BaseEntity;
-import org.hibernate.validator.constraints.NotBlank;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+
+import org.core.entity.BaseEntity;
 
 /**
  * @Author Zhao.Fei

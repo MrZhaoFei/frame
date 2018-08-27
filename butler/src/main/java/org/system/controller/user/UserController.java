@@ -1,5 +1,11 @@
 package org.system.controller.user;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.core.entity.BaseEntity;
 import org.core.result.ResultCode;
 import org.core.result.ResultMap;
@@ -24,11 +30,6 @@ import org.system.global.BaseGlobal;
 import org.system.message.Prompt;
 import org.system.service.iface.user.IUserService;
 import org.tools.md5.MD5Util;
-
-import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @ClassName UserController
@@ -71,6 +72,7 @@ public class UserController {
             return ResultMap.convertMap(ResultCode.FAIL, Prompt.bundle("valid.code.data.empty"));
         }
         String code = (String) session.get(Map.class).get("code");
+        logger.info("验证码："+code);
         /*TODO 判断用户是否已经注册*/
         Map<String,Object> userIsExistsMap=userService.getUserIsExists(user);
         if (userIsExistsMap!=null && userIsExistsMap.size()>0){
@@ -99,7 +101,12 @@ public class UserController {
     @RequestMapping(value = {"/{userId}"},method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> getUserDetail(@PathVariable("userId") Integer userId, @Validated(BaseEntity.SelectOne.class) User user, BindingResult result) {
-
+    	logger.debug("debug日志****");
+    	logger.info("info日志****");
+    	logger.error("error日志****");
+    	System.out.println("jjjjjjj");
+    	System.out.println(5/0);
+    	
         user.setId(userId);
         /*查询用户详情*/
         Map<String, Object> resultMap = userService.getUserDetail(user);

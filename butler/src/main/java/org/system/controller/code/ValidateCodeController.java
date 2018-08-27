@@ -1,6 +1,11 @@
 package org.system.controller.code;
 
-import jdk.nashorn.internal.objects.Global;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.core.result.ResultCode;
 import org.core.result.ResultMap;
 import org.redis.cache.RedisCacheManager;
@@ -10,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,11 +24,6 @@ import org.system.message.Prompt;
 import org.system.service.iface.sms.ISmsSendRecordService;
 import org.tools.code.ValidCodeUtils;
 import org.tools.md5.MD5Util;
-
-import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @ClassName ValidateCodeController

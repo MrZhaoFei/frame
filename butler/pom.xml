@@ -31,6 +31,7 @@
 
     <!--依赖包-->
     <dependencies>
+
         <!--系统其它依赖模块-->
         <dependency>
             <groupId>org.ssm</groupId>
@@ -114,6 +115,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+            <!-- 排除commons-logging -->
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+
         </dependency>
         <!--这个jar 文件包含支持UI模版（Velocity，FreeMarker，JasperReports），邮件服务，脚本服务(JRuby)，缓存Cache（EHCache），任务计划Scheduling（uartz）方面的类-->
         <dependency>

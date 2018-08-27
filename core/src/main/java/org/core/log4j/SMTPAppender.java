@@ -246,6 +246,7 @@ public class SMTPAppender extends AppenderSkeleton implements UnrecognizedElemen
 	 * sent.
 	 */
 	public void append(LoggingEvent event) {
+		System.out.println(errorSize+"错误个数*******");
 
 		if (!checkEntryConditions()) {
 			return;
@@ -261,7 +262,7 @@ public class SMTPAppender extends AppenderSkeleton implements UnrecognizedElemen
 		event.getThrowableStrRep();
 		cb.add(event);
 		if (evaluator.isTriggeringEvent(event) && cb.length() >= errorSize) {
-			System.out.println(errorSize+"*******");
+			System.out.println(errorSize+"错误个数*******");
 			sendBuffer();
 		}
 	}

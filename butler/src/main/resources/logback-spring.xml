@@ -21,21 +21,20 @@
 	-->
 
 	<property name="server.name" value="butler" />
+	<property name="log.path" value="D://log/${server.name}" />
+	<property name="log.level" value="debug" />
 	<!-- 多环境配置 -->
-	<springProfile name="default">
-		<property name="log.path" value="E:/log/${server.name}" />
-		<property name="log.level" value="INFO" />
-	</springProfile>
+<!-- 	<springProfile name="default">
+		<property name="log.path" value="D:\log\${server.name}" />
+		<property name="log.level" value="debug" />
+	</springProfile> -->
 
 	<!--输出到控制台 -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<!--<pattern>%d{yyyy-MM-dd HH:mm:ss} [%p] [%t] %c - %m%n</pattern>-->
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{50}] - %msg%n</pattern>
 		</encoder>
-		<layout class="ch.qos.logback.classic.PatternLayout">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-		</layout>
 	</appender>
 
 	<!-- info级别日志控制 -->
@@ -56,7 +55,7 @@
 		</rollingPolicy>
 		<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
 		<encoder>
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{50}] - %msg%n</pattern>
 		</encoder>
 		<!-- 级别过滤 -->
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -83,7 +82,7 @@
 		</rollingPolicy>
 		<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
 		<encoder>
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{50}] - %msg%n</pattern>
 		</encoder>
 		<!-- 级别过滤 -->
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -110,7 +109,7 @@
 		</rollingPolicy>
 		<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
 		<encoder>
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{50}] - %msg%n</pattern>
 		</encoder>
 		<!-- 级别过滤 -->
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -121,7 +120,7 @@
 	</appender>
 
 	<!-- 发送日志文件到邮件 -->
-	<appender name="email" class="org.core.log4j.SMTPAppender">
+	<appender name="email" class="ch.qos.logback.classic.net.SMTPAppender">
 		<!-- 最小输出日志级别 -->
 		<param name="Threshold" value="ERROR" />
 		<!-- 缓冲Event个数默认512 当达到了多少个就覆盖以前的Event 而非网络上所说的缓冲数据大小 不看源码坑出血 -->
@@ -147,26 +146,31 @@
 		<!-- 抄送邮件接受者 -->
 		<!-- 	<param name="Bcc" value="819285335@qq.com"/> -->
 		<!-- 日志输出布局 -->
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%p] [%c] %m%n" />
+		 <!-- <layout class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> --> 
+		<layout class="org.apache.log4j.PatternLayout"> 
+	<!-- 		<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%p] [%c] %m%n" /> -->
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{50}] - %msg%n" />
 		</layout>
 	</appender>
 
 	<!-- 异步发送邮件设置 -->
-	<appender name="asyncout" class="org.apache.log4j.AsyncAppen	der">
+	<appender name="asyncout" class="org.apache.log4j.AsyncAppender">
 		<appender-ref ref="email" />
 	</appender>
 
 	<!-- 默认环境 -->
-	<springProfile name="default">
+<!-- 	<springProfile name="default"> -->
 		<!-- 特殊处理 -->
-		<logger name="org.xnio.nio" level="warn" />
-		<logger name="org.springframework" level="warn" />
-		<logger name="org.system" level="info" />
+		<logger name="org.xnio.nio" level="DEBUG" />
+		<logger name="org.springframework" level="DEBUG" />
+		<logger name="org.system" level="DEBUG" />
 		 <!--添加appender-->
 		<root level="${log.level}">
 			<appender-ref ref="console" />
+			<appender-ref ref="info_file" />
+			<appender-ref ref="warn_file" />
+			<appender-ref ref="error_file" />
 		</root>
-	</springProfile>
+<!-- 	</springProfile> -->
 
 </configuration>

@@ -28,9 +28,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!--logback日志版本-->
-        <logback.version>1.2.3</logback.version>
-        <logbackExtSpring.version>0.1.5</logbackExtSpring.version>
         <!--Apache 工具类版本-->
         <lang.version>2.6</lang.version>
         <commons.lang3.version>3.4</commons.lang3.version>
@@ -40,6 +37,10 @@
         <junit.version>4.12</junit.version>
         <!--slf4j版本-->
         <slf4j.version>1.7.21</slf4j.version>
+        <jcl.over.slf4j.version>1.7.25</jcl.over.slf4j.version>
+        <!--logback日志版本-->
+        <logback.version>1.2.3</logback.version>
+        <logbackExtSpring.version>0.1.4</logbackExtSpring.version>
     </properties>
 
     <!--依赖包-->
@@ -57,20 +58,19 @@
             <version>${logback.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.logback-extensions</groupId>
             <artifactId>logback-ext-spring</artifactId>
             <version>${logbackExtSpring.version}</version>
         </dependency>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${jcl.over.slf4j.version}</version>
         </dependency>
         <!--工具类-->
         <dependency>
@@ -105,10 +105,8 @@
         <module>tools</module>
         <!-- 封装Spring-data-redis -->
         <module>redis</module>
-        <module>butler</module>
         <!--web项目-->
-        <!--<module>butler</module>-->
-        <!--<module>core</module>-->
+        <module>butler</module>
 
     </modules>
 
